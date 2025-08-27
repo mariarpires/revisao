@@ -1,79 +1,86 @@
-//script.js
-//entrada de dados - prompt
-let nome = prompt("Qual seu nome?")
-console.log("Meu nom é", nome)
-//entrada de dados - value
-const input = document.getElementById("input")
-const botao = document.getElementById("botao")
-const mensagem = document.getElementById("mensagem")
+// 1 - Função Declarativa
+function saudacao() {
+    console.log("Olá, Maria!");
+}
+saudacao();
 
-botao.addEventListener("click", () => {
-    mensagem.innerText = "Olá " + input.value
-})
-//-----------------------------------------------
-//conversão de tipos
-const valor = document.getElementById("valor")
-const converter = document.getElementById("converter")
-const resultado = document.getElementById("resultado")
+// 2 - Função com Parâmetro
+function nomee(nome) {
+    console.log("Olá, " + nome);
+}
+nomee("Alice");
 
-converter.addEventListener("click", () => {
-    let texto = valor.value
-    let numero = Number(texto)
-    let dobro = numero * 2
-    resultado.innerText = "O dobro é " + dobro
-})
-//---------------------------------------------
-//funções de texto
-let frase = "Eu gosto de a Metaformose"
-console.log(frase)
-console.log(frase.length) //conta letras e espaços
-console.log(frase.toUpperCase) //tudo maiusculo
-console.log(frase.toLowerCase) //tudo minusculo
-console.log(frase.includes("gosto")) //se tem na frase
-console.log(frase.charAt(5)) //o que tem nessa posição
-console.log(frase.replace("gsoto de", amo)) //troca
-//-------------------------------------------------
-//funções matemáticas
-let arredondado1 = Math.round(4.6)
-let arredondado2 = Math.round(4.2)
+// 3 - Função Anônima
+let anonima = function() {
+    console.log("Como posso ajudar?");
+}
+anonima();
 
-let arredondado3 = Math.floor(5.8) //arredonda para baixo
-let arredondado4 = Math.floor(5.2) //arredonda para cima
+// 4 - Arrow Function
+const multiplicar = (a, b) => {
+    return a * b;
+}
+console.log(multiplicar(4, 5));
 
-console.log("round 4.6", arredondado1)
-console.log("round 4.2", arredondado2)
-console.log("floor 5.8", arredondado3)
-console.log("ceil 5.2", arredondado4)
+// Manipulação do DOM
 
-let maior = Math.max(5, 10, 8, 6, 2, 30)
-let menor = Math.min(5, 10, 8, 6, 2, 30)
-console.log("Maior valor: ", maior)
-console.log("Menor valor: ", menor)
+// 1 - Trocando Textos
+function trocarTexto() {
+    let p = document.getElementById("mensagem");
+    p.innerText = "Texto alterado com JS!";
+}
 
-let raiz = Math.sqrt(25)
-let absoluto = Math.abs(-8)
-console.log(raiz)
-console.log(absoluto)
+// 2 - Personalizando a Página (fundo azul)
+function mudarCorFundo() {
+    document.body.style.backgroundColor = "#5F9EA0";
+}
 
-//gerar número entre 1 e 10
-let aleatorio = Math.floor(Math.random()*10)+1
-console.log(aleatorio)
-//---------------------------------------------------
-//datas
-const data = document.getElementById("data")
-const dataAtual = document.getElementById("dataAtual")
+// 3 - Adicionando Elementos
+function adicionarItem() {
+    let novoItem = document.createElement("li");
+    novoItem.innerText = "Novo item";
+    document.getElementById("lista").appendChild(novoItem);
+}
 
-data.addEventListener("click", () => {
-    const agora = new Date()
-    const dataFormatada = agora.
-    getDate() + "/" + (agora.getMonth() +1) + "/" + agora.getFullYear()
-    dataAtual.innerText = "Hoje é: " + dataFormatada
-})
+// 4 - Removendo Parágrafo
+function removerParagrafo() {
+    let p = document.getElementById("paragrafoRemover");
+    p.remove();
+}
 
-const hoje = new Date()
-const dataPassada = new Date("2025-06-15")
+// 5 - Personalização (cores e tamanhos)
+function personalizar() {
+    let p = document.getElementById("mensagem");
+    let titulo = document.getElementById("titulo");
+    p.style.color = "blue";
+    p.style.fontSize = "20px";
+    titulo.style.color = "green";
+    titulo.style.fontSize = "35px";
+}
 
-const diferenca = hoje - dataPassada
-const diasPassados = Math.floor(diferenca / (1000 * 60 * 60 * 24))
+// Eventos do DOM
+       
+// 1 - Digitação em tempo real
+function mostrarDigitacao() {
+    let nome = document.getElementById("nome").value;
+    document.getElementById("resposta").innerText = "Você digitou: " + nome;
+}
 
-console.log("Se passaram ", diasPassados, "desde 15/06/2025")
+// 2 - Mouseover no botão
+let botaoMouse = document.getElementById("botaoMouse");
+botaoMouse.addEventListener("mouseover", function() {
+botaoMouse.innerText = "oiii";
+});
+
+// 3 - Esconder elemento com dblclick
+let botaoEsconder = document.getElementById("botaoEsconder");
+botaoEsconder.addEventListener("dblclick", function() {
+document.getElementById("textoFonte").style.display = "none";
+});
+
+// 4 - Alterar fonte com tamanho aleatório
+let botaoFonte = document.getElementById("botaoFonte");
+botaoFonte.addEventListener("click", function() {
+let tamanho = Math.floor(Math.random() * (40 - 10 + 1)) + 10;
+document.getElementById("textoFonte").style.fontSize = tamanho + "px";
+});

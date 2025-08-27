@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercícios de Funções e DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+        }
+        #lista {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Entrada de dados -->
-    <input type="text" id="input">
-    <button id="botao">Mostrar Texto</button>
-    <p id="mensagem"></p>
-    <!-- Conversão de tipos -->
-     <input type="text" id="valor">
-     <button id="converter">Converter</button>
-     <p id="resultado"></p>
+<!-- Botões de Manipulação do DOM -->
+    <button onclick="trocarTexto()">Trocar Texto</button>
+    <button onclick="mudarCorFundo()">Mudar Fundo</button>
+    <button onclick="adicionarItem()">Adicionar Item</button>
+    <button onclick="removerParagrafo()">Remover Parágrafo</button>
+    <button onclick="personalizar()">Personalizar</button>
 
-     <script src="script.js"></script>
+    <hr>
+
+    <!-- Eventos -->
+    <input type="text" id="nome" placeholder="Digite algo" onkeyup="mostrarDigitacao()">
+    <p id="resposta"></p>
+
+    <button id="botaoMouse">passe o mouse</button>
+    <button id="botaoEsconder">clique 2x para esconder</button>
+    <p id="textoFonte">TDS2</p>
+    <button id="botaoFonte">mudar tamanho</button>
+
+<script src="script.js"></script>
 </body>
-</html>
